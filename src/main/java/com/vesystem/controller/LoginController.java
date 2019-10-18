@@ -18,6 +18,17 @@ import java.util.Map;
 @Controller
 public class LoginController {
 
+    @GetMapping("/login")
+    public String login(){
+        return "login";
+    }
+
+    @PostMapping("/post-login")
+    public String loginPost(String username,String password){
+        System.out.println(username+":"+password);
+        return "index";
+    }
+
     @RequestMapping("/index")
     public String index( HttpServletRequest request){
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -46,6 +57,6 @@ public class LoginController {
     public String loginOut(HttpSession session) {
         session.invalidate();
         //退出登录后，跳转到退成成功的页面，不走默认页面
-        return "redirect:http://localhost:8080/cas/logout";
+        return "redirect:http://192.168.50.156:8080/cas/logout";
     }
     }
