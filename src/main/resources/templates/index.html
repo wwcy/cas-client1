@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <title>test</title>
 </head>
+<script>
+    (self.parent).opener.location.reload();
+   // (self.parent).opener.location.replace("http://localhost:9090/index");
+     window.top.close();
+</script>
 <body>
         <p th:text="${#httpServletRequest.getRemoteUser()}">Test</p>
         <a href="/index">cas-client1</a>
