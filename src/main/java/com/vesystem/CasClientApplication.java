@@ -1,7 +1,5 @@
 package com.vesystem;
 
-import net.unicon.cas.client.configuration.CasClientConfigurerAdapter;
-import net.unicon.cas.client.configuration.EnableCasClient;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,9 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-@EnableCasClient
+//@EnableCasClient
 @SpringBootApplication(scanBasePackages = "com.vesystem")
-public class CasClientApplication extends CasClientConfigurerAdapter{
+public class CasClientApplication /*extends CasClientConfigurerAdapter*/{
 
 	@Value("${cas-service-redirect-url}")
 	private String serviceRedirectUrl;
@@ -22,7 +20,7 @@ public class CasClientApplication extends CasClientConfigurerAdapter{
 		SpringApplication.run(CasClientApplication.class, args);
 	}
 
-	@Override
+	/*@Override
 	public void configureValidationFilter(FilterRegistrationBean validationFilter) {
 		Map<String, String> map = validationFilter.getInitParameters();
 		map.remove("serverName");
@@ -34,6 +32,6 @@ public class CasClientApplication extends CasClientConfigurerAdapter{
 		Map<String, String> map = authenticationFilter.getInitParameters();
 		map.remove("serverName");
 		map.put("service",serviceRedirectUrl);
-		//map.put("ignorePattern","/login|/static/*");
-	}
+		//map.put("ignorePattern","/login|/static*//*");
+	}*//**/
 }

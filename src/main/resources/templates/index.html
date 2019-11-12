@@ -6,12 +6,43 @@
 </head>
 <script>
     (self.parent).opener.location.reload();
-   // (self.parent).opener.location.replace("http://localhost:9090/index");
      window.top.close();
 </script>
 <body>
-        <p th:text="${#httpServletRequest.getRemoteUser()}">Test</p>
+       <!-- <p th:text="${#httpServletRequest.getRemoteUser()}">Test</p>
         <a href="/index">cas-client1</a>
-        <a href="http://localhost:9091/index">cas-client2</a>
+        <a href="http://localhost:9091/index">cas-client2</a>-->
+       <table border="1">
+        <!--/*@thymesVar id="tokenProfile" type="com.vesystem.entity.TokenProfile"*/-->
+          <tible>/cas/oauth2.0/accessToken<tible/>
+            <tr>
+                <th>access_token</th>
+                <th>token_type</th>
+                <th>expires_in</th>
+                <th>refresh_token</th>
+            </tr>
+           <tr>
+               <td th:text="${tokenProfile.access_token}"></td>
+               <td th:text="${tokenProfile.token_type}"></td>
+               <td th:text="${tokenProfile.expires_in}"></td>
+               <td th:text="${tokenProfile.refresh_token}"></td>
+           </tr>
+        </table>
+        <br/>
+       <table border="1">
+           <!--/*@thymesVar id="userProfile" type="com.vesystem.entity.UserProfile"*/-->
+           <tible>用户信息<tible/>
+           <tr>
+               <th>id</th>
+               <th>client_id</th>
+               <th>attributes</th>
+           </tr>
+           <tr>
+               <td th:text="${userProfile.id}"></td>
+               <td th:text="${userProfile.client_id}"></td>
+               <td th:text="${userProfile.attributes.values()}"></td>
+           </tr>
+       </table>
+
 </body>
 </html>
